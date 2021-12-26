@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeroType, SiteData, Theme } from '../../../utils/models'
-import Body from './body'
-import Navbar from './navbar'
+import Body2 from './body2'
+import Navbar2 from './navbar2'
 
 interface Props {
   siteData: SiteData
@@ -19,7 +19,7 @@ const Hero: React.FC<Props> = ({ siteData, theme, isDarkMode, handleDarkModeClic
 
   return (
     <div className={heroBg}>
-      <Navbar
+      <Navbar2
         title={siteData.siteName}
         logo={siteData.siteLogo}
         theme={theme}
@@ -27,7 +27,7 @@ const Hero: React.FC<Props> = ({ siteData, theme, isDarkMode, handleDarkModeClic
         heroType={heroType}
         handleDarkModeClick={handleDarkModeClick}
       />
-      <Body siteData={siteData} theme={theme} heroType={heroType} isCenter={isCenter} />
+      <Body2 siteData={siteData} theme={theme} heroType={heroType} isCenter={isCenter} />
     </div>
   )
 }

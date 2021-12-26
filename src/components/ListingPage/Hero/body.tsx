@@ -3,6 +3,7 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import { SiteData, Theme, HeroType } from '../../../utils/models'
 import ShareButton from './share-button'
 import { gtagEventClick } from '../../../utils/gtag'
+import LazyHero from "react-lazy-hero";
 
 interface Props {
   siteData: SiteData
@@ -45,7 +46,7 @@ const Body: React.FC<Props> = ({ siteData, theme, heroType, isCenter }) => {
           onClick={() => gtagEventClick('click_hero_action', `${heroButtonLabel}: ${heroButtonUrl}`)}
         >
           {heroButtonLabel}
-          <i className="fas fa-share ml-2"></i>
+          <i className="ml-2 fas fa-share"></i>
         </OutboundLink>
       )
     }
@@ -59,14 +60,27 @@ const Body: React.FC<Props> = ({ siteData, theme, heroType, isCenter }) => {
   }
 
   return (
-    <div className={`container mx-auto px-4 py-8 ${isCenter && 'text-center'}`}>
+    <section>
+    <LazyHero
+    /*imageSrc={props.bgImage}*/
+    imageSrc="https://res.cloudinary.com/dexdumfqy/image/upload/v1632162071/C.E-Websheets-site/cropped-cropped-cropped-img_3878_16-1-1024x614-1920x1154_usalwx.jpg"
+    /*</section>imageSrc={HeroImage}*/
+    isCentered={true}
+    isFixed={true}
+    minHeight="100vh"
+    opacity={0.2}
+    color="#000"
+  >
+    <div className={`container h-screen mx-auto px-4 py-8 ${isCenter && 'text-center'}`}>
       <h1 className={`text-4xl font-bold ${headerTextColor}`}>{heroTitle}</h1>
       <p className={`font-thin text-xl ${paragraphTextColor}`}>{heroDescription}</p>
-      <div className="my-12">
+      {/*<div className="my-12">
         {renderActionButton()}
         {renderShareButton()}
-      </div>
+  </div>*/}
     </div>
+    </LazyHero>
+    </section>
   )
 }
 

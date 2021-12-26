@@ -17,6 +17,9 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-styled-components`,
+    },
+    {
       resolve: 'gatsby-source-google-sheets-flexible',
       options: {
         apiKey: process.env.GATSBY_GOOGLE_CREDENTIALS,
